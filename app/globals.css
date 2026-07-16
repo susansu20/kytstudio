@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Decorative transforms (marquee, parallax, image reveals) must never
+     create sideways scroll. `clip` avoids making a scroll container. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-feature-settings: 'ss01' on, 'cv01' on;
+  }
+
+  ::selection {
+    @apply bg-ink text-paper;
+  }
+
+  /* Visible, consistent focus for keyboard users */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-paper;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Input-aware visibility: hover-capable (desktop) vs touch devices */
+@media (hover: hover) {
+  .touch-only {
+    display: none !important;
+  }
+}
+@media (hover: none) {
+  .hover-only {
+    display: none !important;
+  }
+}
+
+/* Typographic marquee — duplicated track, so -50% loops seamlessly */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 36s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

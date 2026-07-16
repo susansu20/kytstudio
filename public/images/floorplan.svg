@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1830 1010" font-family="'Helvetica Neue', Arial, sans-serif">
+  <!-- The Kyt Studio floor plan — redrawn schematic, 100px = 1m -->
+  <defs>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#161514"/>
+    </marker>
+    <pattern id="stipple" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#EFEDE7"/>
+      <circle cx="2.5" cy="3" r="1.2" fill="#8B8781"/>
+      <circle cx="7.5" cy="7.5" r="1.2" fill="#8B8781"/>
+      <circle cx="5" cy="1" r="1" fill="#B3AFA7"/>
+    </pattern>
+  </defs>
+
+  <rect x="0" y="0" width="1830" height="1010" fill="#FFFFFF"/>
+
+  <!-- ══ dimensions ══ -->
+  <g stroke="#161514" stroke-width="2">
+    <line x1="132" y1="75" x2="868" y2="75" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="892" y1="75" x2="1636" y2="75" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="70" y1="132" x2="70" y2="908" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="1758" y1="227" x2="1758" y2="835" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  </g>
+  <g font-size="30" font-weight="600" fill="#161514">
+    <text x="500" y="58" text-anchor="middle">7.6 m</text>
+    <text x="1264" y="58" text-anchor="middle">7.68 m</text>
+    <text x="52" y="520" text-anchor="middle" transform="rotate(-90 52 520)">8 m</text>
+    <text x="1790" y="531" text-anchor="middle" transform="rotate(90 1790 531)">6.32 m</text>
+    <text x="1420" y="590" text-anchor="middle">12.23 m</text>
+  </g>
+
+  <!-- ══ outer walls (gap on left = entrance) ══ -->
+  <g stroke="#161514" stroke-width="10" fill="none">
+    <line x1="120" y1="120" x2="1648" y2="120"/>
+    <line x1="1648" y1="120" x2="1648" y2="920"/>
+    <line x1="120" y1="920" x2="1648" y2="920"/>
+    <line x1="120" y1="120" x2="120" y2="215"/>
+    <line x1="120" y1="315" x2="120" y2="920"/>
+  </g>
+  <!-- entrance door swing -->
+  <path d="M 120 315 A 100 100 0 0 1 220 215" stroke="#161514" stroke-width="2.5" fill="none"/>
+  <line x1="120" y1="315" x2="120" y2="215" stroke="#161514" stroke-width="3"/>
+
+  <!-- MC riser -->
+  <rect x="128" y="126" width="46" height="84" fill="none" stroke="#161514" stroke-width="3"/>
+  <text x="151" y="168" font-size="20" fill="#161514" text-anchor="middle" transform="rotate(-90 151 168)">MC</text>
+
+  <!-- structural columns -->
+  <rect x="840" y="122" width="80" height="80" fill="url(#stipple)" stroke="#161514" stroke-width="2.5"/>
+  <rect x="1566" y="122" width="80" height="80" fill="url(#stipple)" stroke="#161514" stroke-width="2.5"/>
+  <rect x="838" y="858" width="92" height="60" fill="url(#stipple)" stroke="#161514" stroke-width="2.5"/>
+  <rect x="1440" y="846" width="72" height="72" fill="url(#stipple)" stroke="#161514" stroke-width="2.5"/>
+
+  <!-- ══ backdrops along the top wall ══ -->
+  <rect x="225" y="130" width="590" height="12" fill="#161514" opacity="0.85"/>
+  <text x="520" y="188" font-size="26" fill="#57534E" text-anchor="middle">Backdrop rack</text>
+  <rect x="945" y="130" width="595" height="12" fill="#161514" opacity="0.85"/>
+  <text x="1242" y="188" font-size="26" fill="#57534E" text-anchor="middle">Automatic backdrop system</text>
+
+  <!-- ══ office / storage + white wall ══ -->
+  <g stroke="#161514" stroke-width="4" fill="none">
+    <line x1="132" y1="390" x2="565" y2="390"/>
+    <line x1="565" y1="390" x2="565" y2="914"/>
+  </g>
+  <text x="350" y="660" font-size="28" fill="#57534E" text-anchor="middle" transform="rotate(-90 350 660)">Office / Storage</text>
+
+  <!-- white wall dimension -->
+  <line x1="600" y1="400" x2="600" y2="905" stroke="#161514" stroke-width="2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="636" y="652" font-size="26" fill="#161514" font-weight="600" text-anchor="middle" transform="rotate(-90 636 652)">5 m · White wall</text>
+
+  <!-- ══ lounge set ══ -->
+  <rect x="905" y="415" width="55" height="190" fill="none" stroke="#161514" stroke-width="3"/>
+  <text x="885" y="510" font-size="24" fill="#57534E" text-anchor="middle" transform="rotate(-90 885 510)">3-seater sofa</text>
+  <circle cx="1105" cy="512" r="66" fill="none" stroke="#161514" stroke-width="3"/>
+  <text x="1032" y="512" font-size="24" fill="#57534E" text-anchor="middle" transform="rotate(-90 1032 512)">Coffee table</text>
+  <rect x="1222" y="440" width="50" height="140" fill="none" stroke="#161514" stroke-width="3"/>
+  <text x="1300" y="510" font-size="24" fill="#57534E" text-anchor="middle" transform="rotate(-90 1300 510)">2-seater sofa</text>
+
+  <!-- side table, lamp, decor + mirror -->
+  <rect x="1160" y="258" width="38" height="38" fill="none" stroke="#161514" stroke-width="3"/>
+  <text x="1075" y="290" font-size="24" fill="#57534E" text-anchor="middle">Side-table,</text>
+  <text x="1075" y="318" font-size="24" fill="#57534E" text-anchor="middle">lamp, decor</text>
+  <rect x="1262" y="248" width="38" height="80" fill="none" stroke="#161514" stroke-width="3"/>
+  <text x="1281" y="368" font-size="24" fill="#57534E" text-anchor="middle">Mirror</text>
+
+  <!-- tables, right wall -->
+  <rect x="1572" y="312" width="62" height="106" fill="none" stroke="#161514" stroke-width="3"/>
+  <rect x="1572" y="432" width="62" height="116" fill="none" stroke="#161514" stroke-width="3"/>
+  <text x="1546" y="430" font-size="24" fill="#57534E" text-anchor="middle" transform="rotate(-90 1546 430)">Tables</text>
+
+  <!-- ══ dining + kitchen ══ -->
+  <circle cx="1268" cy="756" r="95" fill="#8F8B85"/>
+  <text x="1268" y="636" font-size="26" fill="#57534E" text-anchor="middle">Dining table</text>
+  <rect x="1452" y="716" width="172" height="76" fill="none" stroke="#161514" stroke-width="3"/>
+  <text x="1538" y="700" font-size="26" fill="#57534E" text-anchor="middle">Kitchen island</text>
+
+  <!-- ══ toilet ══ -->
+  <g stroke="#161514" stroke-width="4" fill="none">
+    <line x1="1516" y1="806" x2="1648" y2="806"/>
+    <line x1="1516" y1="806" x2="1516" y2="846"/>
+  </g>
+  <rect x="1532" y="820" width="30" height="42" fill="none" stroke="#161514" stroke-width="2.5"/>
+  <rect x="1584" y="820" width="34" height="30" fill="none" stroke="#161514" stroke-width="2.5"/>
+  <text x="1600" y="880" font-size="24" fill="#57534E" text-anchor="middle" transform="rotate(-90 1600 880)">Toilet</text>
+
+  <!-- equipment zone -->
+  <rect x="588" y="894" width="235" height="14" fill="#161514" opacity="0.85"/>
+  <text x="705" y="874" font-size="26" fill="#57534E" text-anchor="middle">Equipment</text>
+
+  <!-- ══ AC ledge, outside the right wall ══ -->
+  <rect x="1668" y="222" width="52" height="620" fill="none" stroke="#161514" stroke-width="2.5" stroke-dasharray="10 8"/>
+  <text x="1694" y="532" font-size="24" fill="#57534E" text-anchor="middle" transform="rotate(90 1694 532)">AC ledge</text>
+</svg>
