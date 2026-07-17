@@ -3,23 +3,41 @@ import { Parallax } from '@/components/motion/Parallax'
 import { RevealImage } from '@/components/motion/RevealImage'
 
 /**
- * Asymmetric editorial layout: text column offset against a staggered image
- * pair, images unmasking on scroll. Closes with a full-bleed shot of the
- * backdrop rack — the one moment where the studio's own colour floods the page.
+ * The space: text intro, a uniform three-up photo grid (identical sizes,
+ * aligned edges — no staggering), the floor plan full width, then the
+ * full-bleed backdrop-rack colour moment.
  */
+
+const PHOTOS = [
+  {
+    src: '/images/studio-lights.webp',
+    alt: 'The studio with softboxes, octabox and equipment cart set against the white wall',
+  },
+  {
+    src: '/images/studio-lounge.webp',
+    alt: 'The lounge corner — white sofa, blue velvet armchair and coffee table',
+  },
+  {
+    src: '/images/studio-kitchen.webp',
+    alt: 'Matte black tap on the kitchen island',
+  },
+]
+
 export function TheSpace() {
   return (
     <section id="space" aria-labelledby="space-heading">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-36">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
-          <FadeIn className="md:col-span-5 md:pt-24">
-            {/* TODO: confirm floor area with the studio — current site says "1690 square
-                metres", which is almost certainly square FEET. */}
+        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
+          <FadeIn className="md:col-span-6">
             <h2 id="space-heading" className="font-display text-display-md text-balance">
-              1,690 sq ft of shooting room.
+              1,690 square feet of room to shoot.
             </h2>
-            <div className="mt-8 max-w-md space-y-5 text-base leading-relaxed text-muted">
+          </FadeIn>
+          <FadeIn delay={0.1} className="md:col-span-6">
+            <div className="max-w-md space-y-5 text-base leading-relaxed text-muted md:ml-auto">
               <p>
+                {/* TODO: confirm floor area with the studio — current site says "1690 square
+                    metres", which is almost certainly square FEET. */}
                 White walls on every side and abundant natural light through the day — it turns
                 golden and soft around 5–6pm, if you’re chasing that.
               </p>
@@ -30,44 +48,32 @@ export function TheSpace() {
               </p>
             </div>
           </FadeIn>
-
-          <div className="md:col-span-7">
-            <RevealImage
-              src="/images/studio-lights.webp"
-              alt="The studio with softboxes, octabox and equipment cart set against the white wall"
-              className="aspect-[3/2] w-full"
-            />
-            <Parallax amount={40} className="mt-8 md:-mt-12 md:ml-24">
-              <RevealImage
-                src="/images/studio-lounge.webp"
-                alt="The lounge corner — white sofa, blue velvet armchair and coffee table"
-                className="aspect-[4/3] w-full md:w-4/5"
-                delay={0.1}
-              />
-            </Parallax>
-          </div>
         </div>
 
-        <div className="mt-20 grid gap-12 md:grid-cols-12 md:gap-8">
-          <FadeIn className="md:col-span-7">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/floorplan.svg"
-              alt="Floor plan of The Kyt Studio"
-              loading="lazy"
-              className="w-full border border-line bg-white object-cover"
-            />
-            <p className="mt-3 text-xs uppercase tracking-[0.15em] text-muted">Floor plan</p>
-          </FadeIn>
-          <Parallax amount={28} className="md:col-span-5 md:self-end">
+        {/* Uniform photo grid — identical width and height, aligned edges */}
+        <div className="mt-16 grid gap-4 sm:grid-cols-3">
+          {PHOTOS.map((photo, i) => (
             <RevealImage
-              src="/images/studio-kitchen.webp"
-              alt="Matte black tap on the kitchen island"
-              className="aspect-[4/5] w-full"
-              imgClassName="object-[30%_50%]"
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt}
+              className="aspect-[4/3] w-full"
+              delay={i * 0.08}
             />
-          </Parallax>
+          ))}
         </div>
+
+        {/* Floor plan — full content width */}
+        <FadeIn className="mt-16">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/floorplan.svg"
+            alt="Floor plan of The Kyt Studio"
+            loading="lazy"
+            className="w-full border border-line bg-white"
+          />
+          <p className="mt-3 text-xs uppercase tracking-[0.15em] text-muted">Floor plan</p>
+        </FadeIn>
       </div>
 
       {/* Full-bleed colour moment: the backdrop rack, edge to edge.
