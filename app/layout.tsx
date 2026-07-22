@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | The Kyt Studio',
   },
   description:
-    'Natural-light photo & video studio for rent in Singapore. White walls, excellent soundproofing, lights included. From $50/hr, book online by the hour.',
+    'Natural-light photo & video studio for rent in Singapore. White walls, excellent soundproofing, lights included. From $60/hr, book online by the hour.',
   keywords: [
     'rent photo studio singapore',
     'photo studio hourly rental singapore',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: 'The Kyt Studio',
     title: 'Rent a Photo Studio in Singapore — The Kyt Studio',
     description:
-      'A natural-light studio with white walls and serious soundproofing. From $50/hr, book online.',
+      'A natural-light studio with white walls and serious soundproofing. From $60/hr, book online.',
   },
   twitter: {
     card: 'summary_large_image',

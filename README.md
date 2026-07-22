@@ -56,12 +56,12 @@ Takes about 10 minutes; no code involved.
    treat it like a password.
 
 **4. Share your booking calendar with the robot**
-1. Open [calendar.google.com](https://calendar.google.com). Under
+1. Open [calendar.google.com](https://calendar.google.com) **signed in as
+   contact@kytstudio.net** (the studio's booking calendar). Under
    *My calendars*, hover the calendar you want bookings on → ⋮ →
    **Settings and sharing**.
-   (Tip: create a dedicated calendar called "Studio bookings" so your
-   personal events stay separate — but any calendar works, and anything you
-   add to it by hand automatically blocks online bookings.)
+   (Anything added to this calendar by hand automatically blocks online
+   bookings.)
 2. Under **Share with specific people**, click **Add people** and paste the
    robot's email (it looks like `kyt-bookings@…iam.gserviceaccount.com` —
    it's in the JSON file as `client_email`).
@@ -73,7 +73,7 @@ Takes about 10 minutes; no code involved.
 - `GOOGLE_SERVICE_ACCOUNT_EMAIL` → `client_email` from the JSON
 - `GOOGLE_PRIVATE_KEY` → `private_key` from the JSON (keep the `\n`s and
   wrap the whole thing in double quotes)
-- `GOOGLE_CALENDAR_ID` → the Calendar ID from step 4
+- `GOOGLE_CALENDAR_ID` → `contact@kytstudio.net` (the Calendar ID from step 4)
 
 > **Note on invites:** plain service accounts can't add the customer as an
 > event *attendee* (Google restricts that). The system tries, and falls back
@@ -91,9 +91,10 @@ token into `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`.
 
 **Resend** (email): sign up at [resend.com](https://resend.com), verify the
 `kytstudio.net` domain (they show you the DNS records to add), create an API
-key → `RESEND_API_KEY`. Set `EMAIL_FROM` to something like
-`The Kyt Studio <bookings@kytstudio.net>` and `OWNER_NOTIFICATION_EMAIL` to
-where you want booking alerts.
+key → `RESEND_API_KEY`. Set `EMAIL_FROM` to
+`The Kyt Studio <contact@kytstudio.net>` and `OWNER_NOTIFICATION_EMAIL` to
+`contact@kytstudio.net` — the studio receives every owner alert there, plus
+a bcc copy of each customer confirmation.
 
 **Admin password**: set `ADMIN_PASSWORD` to something long and random, then
 visit `/admin/settings` to manage hours, rates, buffer, notice period,

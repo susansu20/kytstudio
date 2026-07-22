@@ -3,7 +3,7 @@ const ITEMS = [
   'Soundproofed',
   'Three lights pre-set',
   'Automatic backdrops',
-  'From $50/hr',
+  'From $60/hr',
   'Sembawang, Singapore',
 ]
 

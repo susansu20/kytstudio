@@ -8,8 +8,8 @@ import { formatHour, formatLongDate } from './time'
  * logged to the server console instead of sent (demo mode).
  */
 
-const FROM = process.env.EMAIL_FROM || 'The Kyt Studio <bookings@kytstudio.net>'
-const OWNER = process.env.OWNER_NOTIFICATION_EMAIL || bookingConfig.business.email
+const FROM = process.env.EMAIL_FROM || 'The Kyt Studio <contact@kytstudio.net>'
+const OWNER = process.env.OWNER_NOTIFICATION_EMAIL || bookingConfig.business.email // contact@kytstudio.net
 
 export interface BookingSummary {
   ref: string
@@ -28,13 +28,21 @@ interface Attachment {
   content: string // base64
 }
 
-async function send(to: string, subject: string, html: string, attachments?: Attachment[]) {
+async function send(
+  to: string,
+  subject: string,
+  html: string,
+  attachments?: Attachment[],
+  bcc?: string
+) {
   if (!process.env.RESEND_API_KEY) {
-    console.warn(`[kyt] DEMO MODE — email not sent. To: ${to} | Subject: ${subject}`)
+    console.warn(
+      `[kyt] DEMO MODE — email not sent. To: ${to}${bcc ? ` | Bcc: ${bcc}` : ''} | Subject: ${subject}`
+    )
     return
   }
   const resend = new Resend(process.env.RESEND_API_KEY)
-  const { error } = await resend.emails.send({ from: FROM, to, subject, html, attachments })
+  const { error } = await resend.emails.send({ from: FROM, to, bcc, subject, html, attachments })
   if (error) throw new Error(`Resend error: ${error.message}`)
 }
 
@@ -113,9 +121,14 @@ export async function sendCustomerConfirmation(s: BookingSummary, icsBase64: str
       A calendar file is attached. Questions? Just reply to this email or WhatsApp ${b.phone}.
     </p>`)
 
-  await send(email, `Booking confirmed — ${formatLongDate(s.date)}, ${timeRange(s)} (${s.ref})`, html, [
-    { filename: `kyt-studio-${s.ref}.ics`, content: icsBase64 },
-  ])
+  // The studio (contact@kytstudio.net) receives a copy of every confirmation
+  await send(
+    email,
+    `Booking confirmed — ${formatLongDate(s.date)}, ${timeRange(s)} (${s.ref})`,
+    html,
+    [{ filename: `kyt-studio-${s.ref}.ics`, content: icsBase64 }],
+    OWNER
+  )
 }
 
 /* ── owner notification ── */

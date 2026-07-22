@@ -57,7 +57,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.65, ease }}
           >
-            White walls, window light and serious soundproofing — from $50/hr, lights included.
+            White walls, window light and serious soundproofing — from $60/hr, lights included.
           </motion.p>
           <motion.div
             className="mt-8 lg:hidden"

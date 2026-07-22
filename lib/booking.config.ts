@@ -116,8 +116,8 @@ export const bookingConfig = {
 
   /** Hourly rates in SGD. (runtime-overridable) */
   rates: {
-    weekday: 50,
-    weekendAndHoliday: 60,
+    weekday: 60,
+    weekendAndHoliday: 70,
   },
 
   /**

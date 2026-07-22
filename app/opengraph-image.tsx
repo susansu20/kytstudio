@@ -34,7 +34,7 @@ export default function OgImage() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <div style={{ fontSize: 28, color: '#6E6A63' }}>White walls · Soundproofed · Lights included</div>
           <div style={{ display: 'flex', alignItems: 'baseline' }}>
-            <div style={{ fontSize: 72 }}>$50</div>
+            <div style={{ fontSize: 72 }}>$60</div>
             <div style={{ fontSize: 28, color: '#6E6A63', marginLeft: 8 }}>/hr</div>
           </div>
         </div>
